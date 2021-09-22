@@ -5,4 +5,4 @@ case $(uname -r) in
 	* ) cwd=$(pwd);;
 esac
 
-docker run --rm -v $cwd:/src ghcr.io/docker-s-images/protoc:main $*
+docker run --rm -v "$cwd":/src ghcr.io/docker-s-images/protoc:main $*
