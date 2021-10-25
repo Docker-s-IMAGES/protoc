@@ -18,6 +18,9 @@ RUN PB_REL="https://github.com/protocolbuffers/protobuf/releases/download"; \
 
 ENV LD_LIBRARY_PATH=/usr/local/lib/
 
+COPY merge-python.py /usr/bin/merge-python.py
+COPY main.sh /usr/bin/main.sh
+
 WORKDIR /src
 
-ENTRYPOINT [ "protoc", "-I", "/src", "--python_betterproto_out=lib" ]
+ENTRYPOINT [ "/usr/bin/main.sh" ]
