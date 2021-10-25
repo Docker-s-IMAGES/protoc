@@ -14,12 +14,15 @@ RUN PB_REL="https://github.com/protocolbuffers/protobuf/releases/download"; \
     make; \
     make install; \
     cd ..; \
+    rm -rf protobuf; \
     pip install betterproto[compiler];
 
 ENV LD_LIBRARY_PATH=/usr/local/lib/
 
 COPY merge-python.py /usr/bin/merge-python.py
 COPY main.sh /usr/bin/main.sh
+
+RUN chmod +x /usr/bin/main.sh
 
 WORKDIR /src
 
